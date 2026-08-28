@@ -26,7 +26,7 @@ def unpack_bundle() -> None:
                 raise RuntimeError(f"Unsafe archive path: {member.name}")
             if member.issym() or member.islnk() or member.isdev():
                 raise RuntimeError(f"Unsupported archive entry: {member.name}")
-        archive.extractall(APP_ROOT, members=members)
+        archive.extractall(APP_ROOT, members=members, filter="data")
 
 
 if __name__ == "__main__":
